@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 12:53:42 by hferjani          #+#    #+#             */
-/*   Updated: 2023/05/24 14:53:04 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/05/24 16:25:57 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_data
 	//void	*img_wall;
 	void	*ceiling;
 	void    *floor;
+	t_player	player;
 }	t_data;
 
 
