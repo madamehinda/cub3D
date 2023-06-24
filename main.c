@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:49:19 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/24 18:31:14 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/24 19:17:13 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,14 +110,35 @@ void	ft_textures_addr(t_data *game)
 // Chargement des textures
 void	ft_textures(t_data *game)
 {
+	
 	game->texture[0].img = mlx_xpm_file_to_image(game->mlx.mlx_ptr,
 			game->north, &game->texture[0].width, &game->texture[0].height);
+	if (!game->texture[0].img)
+	{
+		printf("Error\nTexture not found");
+		exit_game(game);
+	}
 	game->texture[1].img = mlx_xpm_file_to_image(game->mlx.mlx_ptr,
 			game->south, &game->texture[1].width, &game->texture[1].height);
+	if (!game->texture[1].img)
+	{
+		printf("Error\nTexture not found");
+		exit_game(game);
+	}
 	game->texture[2].img = mlx_xpm_file_to_image(game->mlx.mlx_ptr,
 			game->west, &game->texture[2].width, &game->texture[2].height);
+	if (!game->texture[2].img)
+	{
+		printf("Error\nTexture not found");
+		exit_game(game);
+	}
 	game->texture[3].img = mlx_xpm_file_to_image(game->mlx.mlx_ptr,
 			game->east, &game->texture[3].width, &game->texture[3].height);
+	if (!game->texture[3].img)
+	{
+		printf("Error\nTexture not found");
+		exit_game(game);
+	}
 	ft_textures_addr(game);
 }
 

@@ -139,20 +139,6 @@ La map n'est pas ferme, mais ca s ouvre qd mm
 
 env -i valgrind --leak-check=full --show-leak-kinds=all ./cub3D map/1.cub
 
-*****************DEBEUGAGE EXEC***********************
-
-111111111111
-10000S00001
-1111111111
-
-111111111111
-1000000000W1
-100000000001
-111111111111
-
-impossible d avancer ou de reculer ()
-
-
 
 ******************PARSING SEGFAULT*********
 
