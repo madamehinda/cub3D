@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:49:19 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/24 15:41:21 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/24 16:32:01 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,20 +112,12 @@ void	ft_textures(t_data *game)
 {
 	game->texture[0].img = mlx_xpm_file_to_image(game->mlx.mlx_ptr,
 			game->north, &game->texture[0].width, &game->texture[0].height);
-	// if (!game->texture[0].img)
-	// 	ft_error(game, "North texture");
 	game->texture[1].img = mlx_xpm_file_to_image(game->mlx.mlx_ptr,
 			game->south, &game->texture[1].width, &game->texture[1].height);
-	// if (!game->texture[1].img)
-	// 	ft_error(game, "South texture");
 	game->texture[2].img = mlx_xpm_file_to_image(game->mlx.mlx_ptr,
 			game->west, &game->texture[2].width, &game->texture[2].height);
-	// if (!game->texture[2].img)
-	// 	ft_error(game, "West texture");
 	game->texture[3].img = mlx_xpm_file_to_image(game->mlx.mlx_ptr,
 			game->east, &game->texture[3].width, &game->texture[3].height);
-	// if (!game->texture[3].img)
-	// 	ft_error(game, "East texture");
 	ft_textures_addr(game);
 }
 
