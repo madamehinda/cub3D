@@ -1,0 +1,237 @@
+*****************************RGB ERREUR*********
+
+F                 -7255,255,255
+
+attention : Erreur car on peut aller au dessus et en 
+dessous du RGB
+F           	255,255,255
+ca marche aussi avant un tab avant le chiffre (surement atoi)
+alors que ca devrait pas 
+
+
+***********************SEGFAULT DOSSIER OU XPM VIDES**************
+
+WE textures/spaceship/
+EA     textures/spaceship/wall_2.xpm si wall_2.xpm est vide
+
+***********************************SEGFAULT MAP***********************************
+La map n'est pas ferme, mais ca s ouvre qd mm
+
+11111111111111110111111111
+1000000000110000000000001
+1011000001110000000000001
+100100000000000000000000111111111
+1111111110110000001110000000000001
+100000000000000001110111111111111
+11110111111111011100000010001
+11110111111111011101010010001
+11000000110101011100000010001
+1000000N0000000011000000100011
+1000000000000001101010000010001
+1100000111010101111101111000111
+11110111 1110101 101111010001
+11111111 1111111 111111111111
+
+==170966== Process terminating with default action of signal 11 (SIGSEGV)
+==170966==  Access not within mapped region at address 0x10
+==170966==    at 0x114578: ft_increment_ray (raycasting_2.c:85)
+==170966==    by 0x114466: ft_sidedist (raycasting_2.c:65)
+==170966==    by 0x114239: ft_raycasting (raycasting_2.c:24)
+==170966==    by 0x1163DC: mlx_loop (in /mnt/nfs/homes/hferjani/cub3D/cub3D)
+==170966==    by 0x112500: ft_mlx (main.c:167)
+==170966==    by 0x1125C2: main (main.c:185)
+
+****************************************
+
+111111111111111111111111
+1000000000110000000000001
+1011000001110000000000001
+100100000000000000000000111111111
+1111111110110000001110000000000001
+100000000000000001110111111111111
+11110111111111011100000010001
+11110111111111011101010010001
+11000000110101011100000010001
+100000000000000011000000100011
+10000000S0000001101010000010001
+1100000101010101111101111000111
+11110111 1110101 101111010001
+11111111 1111111 111111111111
+
+==172050== Process terminating with default action of signal 11 (SIGSEGV)
+==172050==  Access not within mapped region at address 0x8
+==172050==    at 0x112AD9: move_i_inc (check_carte.c:62)
+==172050==    by 0x112CF1: ft_backtacking (check_carte.c:102)
+==172050==    by 0x1133E1: ft_dup (check_carte.c:236)
+==172050==    by 0x111909: check_player (parsing_map.c:286)
+==172050==    by 0x111FC4: ft_parsing_fd (main.c:88)
+==172050==    by 0x1125A0: main (main.c:182)
+
+****************************************
+
+0000S0000
+
+==172796== Process terminating with default action of signal 11 (SIGSEGV)
+==172796==  Access not within mapped region at address 0x5
+==172796==    at 0x112AD9: move_i_inc (check_carte.c:62)
+==172796==    by 0x112CF1: ft_backtacking (check_carte.c:102)
+==172796==    by 0x1133E1: ft_dup (check_carte.c:236)
+==172796==    by 0x111909: check_player (parsing_map.c:286)
+==172796==    by 0x111FC4: ft_parsing_fd (main.c:88)
+==172796==    by 0x1125A0: main (main.c:182)
+
+******************LEAK*********************
+
+11111111111
+0000S00001
+1111111111
+
+==173138== Invalid read of size 1
+==173138==    at 0x1129CD: move_j_dec (check_carte.c:43)
+==173138==    by 0x112CD6: ft_backtacking (check_carte.c:100)
+==173138==    by 0x1133E1: ft_dup (check_carte.c:236)
+==173138==    by 0x111909: check_player (parsing_map.c:286)
+==173138==    by 0x111FC4: ft_parsing_fd (main.c:88)
+==173138==    by 0x1125A0: main (main.c:182)
+==173138==  Address 0x4d5010f is 1 bytes before a block of size 12 alloc'd
+==173138==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==173138==    by 0x115525: ft_strdup (in /mnt/nfs/homes/hferjani/cub3D/cub3D)
+==173138==    by 0x1131EB: malloc_dup (check_carte.c:209)
+==173138==    by 0x113257: ft_dup (check_carte.c:221)
+==173138==    by 0x111909: check_player (parsing_map.c:286)
+==173138==    by 0x111FC4: ft_parsing_fd (main.c:88)
+==173138==    by 0x1125A0: main (main.c:182)
+==173138== 
+==173138== Invalid read of size 1
+==173138==    at 0x112E4C: verif_j_dec (check_carte.c:134)
+==173138==    by 0x1130C5: ft_backtacking_close (check_carte.c:187)
+==173138==    by 0x1133ED: ft_dup (check_carte.c:237)
+==173138==    by 0x111909: check_player (parsing_map.c:286)
+==173138==    by 0x111FC4: ft_parsing_fd (main.c:88)
+==173138==    by 0x1125A0: main (main.c:182)
+==173138==  Address 0x4d5010f is 1 bytes before a block of size 12 alloc'd
+==173138==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==173138==    by 0x115525: ft_strdup (in /mnt/nfs/homes/hferjani/cub3D/cub3D)
+==173138==    by 0x1131EB: malloc_dup (check_carte.c:209)
+==173138==    by 0x113257: ft_dup (check_carte.c:221)
+==173138==    by 0x111909: check_player (parsing_map.c:286)
+==173138==    by 0x111FC4: ft_parsing_fd (main.c:88)
+==173138==    by 0x1125A0: main (main.c:182)
+==173138== 
+==173138== Invalid read of size 1
+==173138==    at 0x112E98: verif_j_dec (check_carte.c:136)
+==173138==    by 0x1130C5: ft_backtacking_close (check_carte.c:187)
+==173138==    by 0x1133ED: ft_dup (check_carte.c:237)
+==173138==    by 0x111909: check_player (parsing_map.c:286)
+==173138==    by 0x111FC4: ft_parsing_fd (main.c:88)
+==173138==    by 0x1125A0: main (main.c:182)
+==173138==  Address 0x4d5010f is 1 bytes before a block of size 12 alloc'd
+==173138==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==173138==    by 0x115525: ft_strdup (in /mnt/nfs/homes/hferjani/cub3D/cub3D)
+==173138==    by 0x1131EB: malloc_dup (check_carte.c:209)
+==173138==    by 0x113257: ft_dup (check_carte.c:221)
+==173138==    by 0x111909: check_player (parsing_map.c:286)
+==173138==    by 0x111FC4: ft_parsing_fd (main.c:88)
+==173138==    by 0x1125A0: main (main.c:182)
+==173138== 
+
+******************LEAK*********************
+
+env -i valgrind --leak-check=full --show-leak-kinds=all ./cub3D map/1.cub
+
+*****************DEBEUGAGE EXEC***********************
+
+111111111111
+10000S00001
+1111111111
+
+111111111111
+1000000000W1
+100000000001
+111111111111
+
+impossible d avancer ou de reculer ()
+
+
+
+******************PARSING SEGFAULT*********
+
+                       
+                        
+
+
+
+
+
+
+
+
+
+
+
+                            
+
+==177121== Process terminating with default action of signal 11 (SIGSEGV)
+==177121==  Access not within mapped region at address 0x0
+==177121==    at 0x115D1F: ft_strcmp (in /mnt/nfs/homes/hferjani/cub3D/cub3D)
+==177121==    by 0x110BFB: ft_check_parse_dir (parsing_map.c:36)
+==177121==    by 0x111D74: ft_parsing_fd (main.c:70)
+==177121==    by 0x1125A0: main (main.c:182)
+
+map avec 2 lignes qui contient des espace puis des retours
+a la ligne puis encore des espaces
+
+
+*******************PARSING LEAK**************
+
+NO    	   textures/spaceship/wall_3.xpm
+
+si je mets entre NO et textures, je mets des espaces
+entrecoupe d'un tab = LEAK
+
+==178292== Invalid write of size 1
+==178292==    at 0x115633: ft_strddup (in /mnt/nfs/homes/hferjani/cub3D/cub3D)
+==178292==    by 0x1100E7: check_dir (ft_direction.c:35)
+==178292==    by 0x110274: ft_check_map_dir (ft_direction.c:69)
+==178292==    by 0x111E8E: ft_parsing_fd (main.c:78)
+==178292==    by 0x1125A0: main (main.c:182)
+==178292==  Address 0x4d696e1 is 0 bytes after a block of size 1 alloc'd
+==178292==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==178292==    by 0x1155C8: ft_strddup (in /mnt/nfs/homes/hferjani/cub3D/cub3D)
+==178292==    by 0x1100E7: check_dir (ft_direction.c:35)
+==178292==    by 0x110274: ft_check_map_dir (ft_direction.c:69)
+==178292==    by 0x111E8E: ft_parsing_fd (main.c:78)
+==178292==    by 0x1125A0: main (main.c:182)
+==178292== 
+==178292== Syscall param openat(filename) points to unaddressable byte(s)
+==178292==    at 0x4BC46EB: open (open64.c:41)
+==178292==    by 0x1102BF: ft_check_map_dir (ft_direction.c:74)
+==178292==    by 0x111E8E: ft_parsing_fd (main.c:78)
+==178292==    by 0x1125A0: main (main.c:182)
+==178292==  Address 0x4d696e1 is 0 bytes after a block of size 1 alloc'd
+==178292==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==178292==    by 0x1155C8: ft_strddup (in /mnt/nfs/homes/hferjani/cub3D/cub3D)
+==178292==    by 0x1100E7: check_dir (ft_direction.c:35)
+==178292==    by 0x110274: ft_check_map_dir (ft_direction.c:69)
+==178292==    by 0x111E8E: ft_parsing_fd (main.c:78)
+==178292==    by 0x1125A0: main (main.c:182)
+==178292== 
+
+****************SEGFAULT DEPLACEMENT***********
+
+ 11111111111111111111111
+1N0000000110000000000001
+1011000001110000000000001
+100100000000000000000000111111111
+1111111110110000001110000000000001
+100000000000000001110111111111111
+11110111111111011100000010001
+11110111111111011101010010001
+11000000110101011100000010001
+100000000000000011000000100011
+1000000000000001101010000010001
+1100001111010101111101111000111
+111101   1110101 101111010001
+11111111 1111111 111111111111
+
+si je me dirige vers l espace en haut a gauche 

@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 14:57:11 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/24 16:52:11 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/24 16:55:08 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 /*free and exits the game*/
 int	exit_game(t_data *map)
 {
+	int	i;
+
 	printf("Bye Bitch!\n");
-	int i;
 	i = 0;
-	
 	destroy_mlx(map);
 	while (i < 4)
 	{
@@ -27,13 +27,13 @@ int	exit_game(t_data *map)
 		i++;
 	}
 	if (map->mlx.img)
-			mlx_destroy_image(map->mlx.mlx_ptr, map->mlx.img);
+		mlx_destroy_image(map->mlx.mlx_ptr, map->mlx.img);
 	if (map->mlx.img_swap)
-			mlx_destroy_image(map->mlx.mlx_ptr, map->mlx.img_swap);
-	if(map->mlx.mlx_win)
+		mlx_destroy_image(map->mlx.mlx_ptr, map->mlx.img_swap);
+	if (map->mlx.mlx_win)
 		mlx_destroy_window(map->mlx.mlx_ptr, map->mlx.mlx_win);
-	if(map->mlx.mlx_ptr)
+	if (map->mlx.mlx_ptr)
 		mlx_destroy_display(map->mlx.mlx_ptr);
 	free(map->mlx.mlx_ptr);
-	exit (0);
+	exit(0);
 }
