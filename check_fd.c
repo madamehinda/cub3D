@@ -1,0 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_fd.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/20 14:31:52 by hferjani          #+#    #+#             */
+/*   Updated: 2023/06/20 14:31:57 by hferjani         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "cub3d.h"
+
+//function pout check .cub
+int	ft_check_cub(char *str)
+{
+	int	size;
+
+	size = ft_strlen(str);
+	if (str[size - 1] == 'b' && str[size - 2] == 'u'
+		&&str[size - 3] == 'c' && str[size - 4] == '.')
+		return (1);
+	return (0);
+}
