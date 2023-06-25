@@ -145,3 +145,7 @@ env -i valgrind --leak-check=full --show-leak-kinds=all ./cub3D map/1.cub
 11111111 1111111 111111111111
 
 si je me dirige vers l espace en haut a gauche 
+
+
+******************Probleme direction*********************
+quand on debute au nord ou au sud on qrive pas a se deplacer a gauche
