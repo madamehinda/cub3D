@@ -1,20 +1,6 @@
-*****************************RGB ERREUR*********
-
-F                 -7255,255,255
-
-attention : Erreur car on peut aller au dessus et en 
-dessous du RGB
-F           	255,255,255
-ca marche aussi avant un tab avant le chiffre (surement atoi)
-alors que ca devrait pas 
 
 
-***********************SEGFAULT DOSSIER OU XPM VIDES**************
 
-WE textures/spaceship/
-EA     textures/spaceship/wall_2.xpm si wall_2.xpm est vide
-
-***********************************SEGFAULT MAP***********************************
 La map n'est pas ferme, mais ca s ouvre qd mm
 
 11111111111111110111111111
@@ -140,68 +126,6 @@ La map n'est pas ferme, mais ca s ouvre qd mm
 env -i valgrind --leak-check=full --show-leak-kinds=all ./cub3D map/1.cub
 
 
-******************PARSING SEGFAULT*********
-
-                       
-                        
-
-
-
-
-
-
-
-
-
-
-
-                            
-
-==177121== Process terminating with default action of signal 11 (SIGSEGV)
-==177121==  Access not within mapped region at address 0x0
-==177121==    at 0x115D1F: ft_strcmp (in /mnt/nfs/homes/hferjani/cub3D/cub3D)
-==177121==    by 0x110BFB: ft_check_parse_dir (parsing_map.c:36)
-==177121==    by 0x111D74: ft_parsing_fd (main.c:70)
-==177121==    by 0x1125A0: main (main.c:182)
-
-map avec 2 lignes qui contient des espace puis des retours
-a la ligne puis encore des espaces
-
-
-*******************PARSING LEAK**************
-
-NO    	   textures/spaceship/wall_3.xpm
-
-si je mets entre NO et textures, je mets des espaces
-entrecoupe d'un tab = LEAK
-
-==178292== Invalid write of size 1
-==178292==    at 0x115633: ft_strddup (in /mnt/nfs/homes/hferjani/cub3D/cub3D)
-==178292==    by 0x1100E7: check_dir (ft_direction.c:35)
-==178292==    by 0x110274: ft_check_map_dir (ft_direction.c:69)
-==178292==    by 0x111E8E: ft_parsing_fd (main.c:78)
-==178292==    by 0x1125A0: main (main.c:182)
-==178292==  Address 0x4d696e1 is 0 bytes after a block of size 1 alloc'd
-==178292==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==178292==    by 0x1155C8: ft_strddup (in /mnt/nfs/homes/hferjani/cub3D/cub3D)
-==178292==    by 0x1100E7: check_dir (ft_direction.c:35)
-==178292==    by 0x110274: ft_check_map_dir (ft_direction.c:69)
-==178292==    by 0x111E8E: ft_parsing_fd (main.c:78)
-==178292==    by 0x1125A0: main (main.c:182)
-==178292== 
-==178292== Syscall param openat(filename) points to unaddressable byte(s)
-==178292==    at 0x4BC46EB: open (open64.c:41)
-==178292==    by 0x1102BF: ft_check_map_dir (ft_direction.c:74)
-==178292==    by 0x111E8E: ft_parsing_fd (main.c:78)
-==178292==    by 0x1125A0: main (main.c:182)
-==178292==  Address 0x4d696e1 is 0 bytes after a block of size 1 alloc'd
-==178292==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==178292==    by 0x1155C8: ft_strddup (in /mnt/nfs/homes/hferjani/cub3D/cub3D)
-==178292==    by 0x1100E7: check_dir (ft_direction.c:35)
-==178292==    by 0x110274: ft_check_map_dir (ft_direction.c:69)
-==178292==    by 0x111E8E: ft_parsing_fd (main.c:78)
-==178292==    by 0x1125A0: main (main.c:182)
-==178292== 
 
 ****************SEGFAULT DEPLACEMENT***********
 

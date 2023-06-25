@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:49:19 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/24 19:17:13 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/25 15:14:04 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,36 +58,54 @@ int	ft_check_fd(t_data *map)
 	return (0);
 }
 
-int ft_parsing_fd(t_data *map,char **argv)
+int	ft_check_tab_fd(t_data *map)
 {
-	
+	int	i;
+
+	i = 0;
+	while (map->tab_fd[i])
+	{
+		if (ft_strchr(map->tab_fd[i],'\t'))
+			return(1);
+		i++;
+	}
+	return (0);
+}
+
+
+int ft_parsing_fd(t_data *map, char **argv)
+{
+
 	map->nbr_line = count_lines(argv[1]);
 	if (!map->nbr_line)
-		return (destroy_mlx(map),msg_err("File map is too big for int parsing ", argv[1]),1);
+		return (destroy_mlx(map), msg_err("File map is too big for int parsing ", argv[1]), 1);
 	if (map->nbr_line < 5)
-		return (destroy_mlx(map),msg_err("Not enough informations to start ", argv[1]),1);
-	get_fd( argv ,map,map->nbr_line);
-	if(ft_check_parse_dir(map->tab_fd) != 0)
-		return (destroy_mlx(map),msg_err("parse direction ", argv[1]),1);
-	if(ft_check_parse_rgb(map->tab_fd))
-		return (destroy_mlx(map),msg_err("parse rgb  ", argv[1]),1);
-	if(ft_check_map_fd(map,map->tab_fd))
-		return (destroy_mlx(map),msg_err("count line dir rgb  ", argv[1]),1);
-	if(ft_check_fd(map))
-		return (destroy_mlx(map),msg_err("invalid character in map ", argv[1]),1);
-	if(ft_check_map_dir(map->tab_fd, map))
-		return (destroy_mlx(map),msg_err("erreur parse direction ou erreur chemin texture  ", argv[1]),1);//changer msg erreur
-	if(ft_check_argcolor(map->tab_fd, map))
-		return (destroy_mlx(map),msg_err("erreur parse color  ", argv[1]),1);//changer msg erreur	
-	if(parse_map(map))
-			return(destroy_mlx(map),msg_err("error parse carte ",argv[1]));
-	if(ft_check_symbol(map))
-			return(destroy_mlx(map),msg_err("error symbol carte ",argv[1]));
-	if(ft_check_carte_line_empty(map))
-			return(destroy_mlx(map),msg_err("map ligne dans carte ",argv[1]));
-	if(check_player(map))
-			return(destroy_mlx(map),msg_err("multiple player ou pas de player  ou non close",argv[1]));
-	return(0);	
+		return (destroy_mlx(map), msg_err("Not enough informations to start ", argv[1]), 1);
+	get_fd(argv, map, map->nbr_line);
+	// j'ai rajouter cet fct pour ne pas prendre tab des le debut dan fd
+	if (ft_check_tab_fd(map))
+		return (destroy_mlx(map), msg_err("tab in fd ", argv[1]), 1);
+	if (ft_check_parse_dir(map->tab_fd) != 0)
+		return (destroy_mlx(map), msg_err("parse direction ", argv[1]), 1);
+	if (ft_check_parse_rgb(map->tab_fd))
+		return (destroy_mlx(map), msg_err("parse rgb  ", argv[1]), 1);
+	if (ft_check_map_fd(map, map->tab_fd))
+		return (destroy_mlx(map), msg_err("count line dir rgb  ", argv[1]), 1);
+	if (ft_check_fd(map))
+		return (destroy_mlx(map), msg_err("invalid character in map ", argv[1]), 1);
+	if (ft_check_map_dir(map->tab_fd, map))
+		return (destroy_mlx(map), msg_err("erreur parse direction ou erreur chemin texture  ", argv[1]), 1); // changer msg erreur
+	if (ft_check_argcolor(map->tab_fd, map))
+		return (destroy_mlx(map), msg_err("erreur parse color  ", argv[1]), 1); // changer msg erreur
+	if (parse_map(map))
+		return (destroy_mlx(map), msg_err("error parse carte ", argv[1]));
+	if (ft_check_symbol(map))
+		return (destroy_mlx(map), msg_err("error symbol carte ", argv[1]));
+	if (ft_check_carte_line_empty(map))
+		return (destroy_mlx(map), msg_err("map ligne dans carte ", argv[1]));
+	if (check_player(map))
+		return (destroy_mlx(map), msg_err("multiple player ou pas de player  ou non close", argv[1]));
+	return (0);
 }
 
 // Obtenir addr textures

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: imraoui <imraoui@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 11:00:50 by imraoui           #+#    #+#             */
-/*   Updated: 2023/05/25 17:48:02 by imraoui          ###   ########.fr       */
+/*   Updated: 2023/06/25 14:22:33 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 
-int					ft_atoii(const char *str);
+long int					ft_atoii(const char *nptr);
 size_t				ft_strlen(const char *str);
 size_t				ft_strlcpy(char *dest, const char *src, size_t size);
 size_t				ft_strlcat(char *dest, const char *src, size_t size);
