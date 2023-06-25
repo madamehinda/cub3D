@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 18:30:39 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/25 16:18:10 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/25 16:25:28 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,22 @@ void	ft_forward_back(t_data *data)
 	{
 
 		if (data->tab[(int)(data->ray.pos.x + (data->ray.dir.x 
-			* data->ray.move_speed * 2))][(int)data->ray.pos.y] != '1')
+			* data->ray.move_speed * 10))][(int)data->ray.pos.y] != '1')
 				data->ray.pos.x += data->ray.dir.x * data->ray.move_speed;
 	
 		if (data->tab[(int)data->ray.pos.x][(int)(data->ray.pos.y + (data->ray.dir.y 
-			* data->ray.move_speed * 2))] != '1')
+			* data->ray.move_speed * 10))] != '1')
 				data->ray.pos.y += data->ray.dir.y * data->ray.move_speed;
 	}
 	else if (data->mlx.back == 1)
 	{
 		
 		if (data->tab[(int)(data->ray.pos.x - (data->ray.dir.x
-					* data->ray.move_speed * 2))][(int)data->ray.pos.y] != '1')
+					* data->ray.move_speed * 10))][(int)data->ray.pos.y] != '1')
 			data->ray.pos.x -= data->ray.dir.x * data->ray.move_speed;
 
 		if (data->tab[(int)data->ray.pos.x][(int)(data->ray.pos.y
-			- (data->ray.dir.y * data->ray.move_speed * 2))] != '1')
+			- (data->ray.dir.y * data->ray.move_speed * 10))] != '1')
 			data->ray.pos.y -= data->ray.dir.y * data->ray.move_speed;
 	}
 }
@@ -45,21 +45,21 @@ void	ft_left_right(t_data *data)
 	if (data->mlx.right == 1)
 	{
 		if (data->tab[(int)(data->ray.pos.x + (data->ray.dir.y
-					* data->ray.move_speed * 2))][(int)data->ray.pos.y] != '1')
+					* data->ray.move_speed * 10))][(int)data->ray.pos.y] != '1')
 				data->ray.pos.x += data->ray.dir.y * data->ray.move_speed;
 
 		if (data->tab[(int)data->ray.pos.x][(int)(data->ray.pos.y
-			- (data->ray.dir.x * data->ray.move_speed * 2))] != '1')
+			- (data->ray.dir.x * data->ray.move_speed * 10))] != '1')
 				data->ray.pos.y -= data->ray.dir.x * data->ray.move_speed;
 	}
 	else if (data->mlx.left == 1)
 	{
 		if (data->tab[(int)(data->ray.pos.x - (data->ray.dir.y
-					* data->ray.move_speed * 2))][(int)data->ray.pos.y] != '1')
+					* data->ray.move_speed * 10))][(int)data->ray.pos.y] != '1')
 				data->ray.pos.x -= data->ray.dir.y * data->ray.move_speed;
 
 		if (data->tab[(int)data->ray.pos.x][(int)(data->ray.pos.y
-			- (data->ray.dir.x * data->ray.move_speed * 2))] != '1')
+			- (data->ray.dir.x * data->ray.move_speed * 10))] != '1')
 				data->ray.pos.y += data->ray.dir.x * data->ray.move_speed;
 	}
 }
