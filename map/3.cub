@@ -1,10 +1,10 @@
-WE tx/64/wallw.xpm
-EA tx/64/walle.xpm
-NO tx/64/walln.xpm
-SO tx/64/walls.xpm
+WE textures/spaceship/wall_1.xpm
+EA textures/spaceship/wall_2.xpm
+NO textures/spaceship/wall_3.xpm
+SO textures/spaceship/wall_4.xpm
 
 
-C 25555555555555555,255,0
+C 55,255,0
 F 255,20,147
 
 

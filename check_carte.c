@@ -6,235 +6,75 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:57:06 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/20 14:58:35 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/26 14:13:48 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	move_j_inc(t_data *map, int *flag)
+int ft_backtacking(t_data *data, int i, int j)
 {
-	int	i;
-	int	j;
-	int	start_j;
+    if (i >= 0 && i < data->height && j >= 0  && data->dup[i][j])
+    {
+        printf("%s\n", data->dup[i]);
 
-	i = map->pos_x;
-	j = map->pos_y;
-	start_j = j;
-	while (map->dup[i][j] && (map->dup[i][j] == '0' || map->dup[i][j] == 'P')
-		&& map->dup[i][j] != '1')
-	{
-		map->dup[i][j] = 'P';
-		j++;
-	}
-	(*flag)++;
-	j = start_j;
+        if (data->dup[i][j] == '0' || data->dup[i][j] == 'N' || data->dup[i][j] == 'E' || data->dup[i][j] == 'S' || data->dup[i][j] == 'W')
+            data->dup[i][j] = 'P';
+        else
+            return 0; // Condition de sortie lorsque le caractère n'est pas souhaité
+
+        ft_backtacking(data, i, j + 1);
+        ft_backtacking(data, i, j - 1);
+        ft_backtacking(data, i + 1, j);
+        ft_backtacking(data, i - 1, j);
+    }
+
+    return 0;
 }
 
-void	move_j_dec(t_data *map, int *flag)
-{
-	int	i;
-	int	j;
-	int	start_j;
-
-	i = map->pos_x;
-	j = map->pos_y;
-	start_j = j;
-	while (map->dup[i][j] && (map->dup[i][j] == '0' || map->dup[i][j] == 'P')
-		&& map->dup[i][j] != '1')
-	{
-		map->dup[i][j] = 'P';
-		j--;
-	}
-	(*flag)++;
-	j = start_j;
-}
-
-void	move_i_inc(t_data *map, int *flag)
-{
-	int	i;
-	int	j;
-	int	start_i;
-
-	i = map->pos_x;
-	j = map->pos_y;
-	start_i = i;
-	while (map->dup[i][j] && (map->dup[i][j] == '0' || map->dup[i][j] == 'P')
-		&& map->dup[i][j] != '1')
-	{
-		map->dup[i][j] = 'P';
-		i++;
-	}
-	(*flag)++;
-	i = start_i;
-}
-
-void	move_i_dec(t_data *map, int *flag)
-{
-	int	i;
-	int	j;
-	int	start_i;
-
-	i = map->pos_x;
-	j = map->pos_y;
-	start_i = i;
-	while (map->dup[i][j] && (map->dup[i][j] == '0' || map->dup[i][j] == 'P')
-		&& map->dup[i][j] != '1')
-	{
-		map->dup[i][j] = 'P';
-		i--;
-	}
-	(*flag)++;
-	i = start_i;
-}
-void	ft_backtacking(t_data *map)
-{
-	int	flag;
-
-	flag = 0;
-	while (flag < 4)
-	{
-		if (flag == 0)
-			move_j_inc(map, &flag);
-		if (flag == 1)
-			move_j_dec(map, &flag);
-		if (flag == 2)
-			move_i_inc(map, &flag);
-		if (flag == 3)
-			move_i_dec(map, &flag);
-	}
-}
-
-int	verif_j_inc(t_data *map, int *flag)
-{
-	int	i;
-	int	j;
-	int	start_j;
-
-	i = map->pos_x;
-	j = map->pos_y;
-	start_j = j;
-	while (map->dup[i][j] && map->dup[i][j] == 'P')
-		j++;
-	if (map->dup[i][j] != '1')
-		return (1);
-	(*flag)++;
-	j = start_j;
-	return (0);
-}
-int	verif_j_dec(t_data *map, int *flag)
-{
-	int	i;
-	int	j;
-	int	start_j;
-
-	i = map->pos_x;
-	j = map->pos_y;
-	start_j = j;
-	while (map->dup[i][j] && map->dup[i][j] == 'P')
-		j--;
-	if (map->dup[i][j] != '1')
-		return (1);
-	j = start_j;
-	(*flag)++;
-	return (0);
-}
-int	verif_i_inc(t_data *map, int *flag)
-{
-	int	i;
-	int	j;
-	int	start_i;
-
-	i = map->pos_x;
-	j = map->pos_y;
-	start_i = i;
-	while (map->dup[i][j] && map->dup[i][j] == 'P')
-		i++;
-	if (map->dup[i][j] != '1')
-		return (1);
-	i = start_i;
-	(*flag)++;
-	return (0);
-}
-int	verif_i_dec(t_data *map, int *flag)
-{
-	int	i;
-	int	j;
-	int	start_i;
-
-	i = map->pos_x;
-	j = map->pos_y;
-	start_i = i;
-	while (map->dup[i][j] && map->dup[i][j] == 'P')
-		i--;
-	if (map->dup[i][j] != '1')
-		return (1);
-	i = start_i;
-	(*flag)++;
-	return (0);
-}
-int	ft_backtacking_close(t_data *map)
-{
-	int	flag;
-
-	flag = 0;
-	while (flag < 4)
-	{
-		if (flag == 0)
-			if (verif_j_inc(map, &flag))
-				return (1);
-		if (flag == 1)
-			if (verif_j_dec(map, &flag))
-				return (2);
-		if (flag == 2)
-			if (verif_i_inc(map, &flag))
-				return (3);
-		if (flag == 3)
-			if (verif_j_dec(map, &flag))
-				return (4);
-	}
-	return (0);
-}
-int	malloc_dup(t_data *map)
-{
-	int	i;
-
-	i = 0;
-	map->dup = (char **)malloc(sizeof(char *) * (map->height + 1));
-	if (!map->dup)
-		return (1);
-	map->dup[map->height] = NULL;
-	while (map->tab[i])
-	{
-		map->dup[i] = ft_strdup(map->tab[i]);
-		i++;
-	}
-	map->dup[i] = '\0';
-	return (0);
-}
 int	ft_dup(t_data *map)
 {
 	int	i;
-	int	j;
-
+	int j;
 	i = 0;
-	if (malloc_dup(map))
-		return (1);
+	map->dup = (char **) malloc(sizeof(char *) * (map -> height + 1));
+	if(!map->dup)
+		return(1);
+	map->dup[map->height] = NULL;
+	while(map->tab[i])
+	{
+			map->dup[i] = ft_strdup(map->tab[i]);
+			i++;
+	}
+	map->dup[i]= '\0';
+	// i=0;
+	// while(map->dup[i])
+	// {
+	// 	j=0;
+	// 	while(map->dup[i][j])
+	// 	{
+	// 		if(map->dup[i][j]=='0' || map->dup[i][j]==' ' || map->dup[i][j]=='N' || map->dup[i][j]=='E' || map->dup[i][j]=='S' || map->dup[i][j]=='W')
+	// 			map->dup[i][j]='0';
+	// 		j++;
+	// 	}
+	// 	i++;
+	// }
+	i = 0;
+	ft_backtacking(map,map->pos_x,map->pos_y);
+	printf("resulat\n");
 	while (map->dup[i])
 	{
 		j = 0;
-		while (map->dup[i][j])
+		while(map->dup[i][j])
 		{
-			if (map->dup[i][j] == '0' || map->dup[i][j] == ' '
-				|| map->dup[i][j] == 'N' || map->dup[i][j] == 'E'
-				|| map->dup[i][j] == 'S' || map->dup[i][j] == 'W')
-				map->dup[i][j] = '0';
+			printf("%c",map->dup[i][j]);
 			j++;
 		}
 		i++;
 	}
-	ft_backtacking(map);
-	if (ft_backtacking_close(map))
-		return (1);
-	return (0);
+	
+	// if(ft_backtacking_close(map,map->pos_x,map->pos_y))
+	// 	return(1);
+	return(0);
 }
+

@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:54:25 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/20 14:56:39 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/26 14:05:54 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -280,8 +280,8 @@ int	check_player(t_data *map)
 		return (1);
 	if (pos_player(map->tab, map))
 		return (2);
-	printf("pos_x%d\n", map->pos_x);
-	printf("pos_y%d\n", map->pos_y);
+	// printf("pos_x%d\n", map->pos_x);
+	// printf("pos_y%d\n", map->pos_y);
 	ft_parse_player(map);
 	if (ft_dup(map))
 		return (3);

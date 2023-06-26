@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:45:38 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/23 23:56:50 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/26 14:06:53 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,6 @@ void setup_more(t_data *data)
 	data->texture[2].addr = NULL;
 	data->texture[3].addr = NULL;
 	data->texture[4].addr = NULL;
-	// data->wall_north.img = NULL;
-	// data->wall_south.img = NULL;
-	// data->wall_west.img = NULL;
-	// data->wall_east.img = NULL;
-	// data->wall_north.addr = NULL;
-	// data->wall_south.addr = NULL;
-	// data->wall_west.addr = NULL;
-	// data->wall_east.addr = NULL;
 	data->mlx.mlx_win = NULL;
 	data->mlx.mlx_ptr = NULL;
 	data->ray.ray_dir.x = 0;
@@ -55,6 +47,8 @@ void setup_game(t_data *data)
 	data->south = NULL;
 	data->west = NULL;
 	data->east = NULL;
+	data->height = 0;
+	// data->width = 0;
 	data->floor = -1;
 	data->ceiling = -1;
 	data->r = -1;
