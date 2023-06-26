@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:57:06 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/26 17:30:10 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/26 21:52:53 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int check_p(t_data *data)
 		{
 			if(data->dup[i][j] == 'P' && (i == 0 || i == data->height - 1))
 				return(1);
-			else if(data->dup[i][j] == 'P' && (j == 0 || data->dup[i][j + 1] == '\0'))
+			else if(data->dup[i][j] == 'P' && (j == 0 || data->dup[i][j + 1] == '\n' || data->dup[i][j+1] == '\0'))
 				return(1);
 			j++;
 		}

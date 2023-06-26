@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:49:19 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/26 14:01:33 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/26 21:47:47 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,10 +219,10 @@ int main(int argc,char **argv)
 		if(!ft_check_cub(argv[1]))//verifier .cub
 			return(msg_err("error extention .cub ",argv[1]));
 		ft_parsing_fd(&data,argv);//parsing	
-		if (ft_initialise_and_create_window(&data))
-		{
-			ft_mlx(&data);
-		}
+		// if (ft_initialise_and_create_window(&data))
+		// {
+		// 	ft_mlx(&data);
+		// }
 		destroy_mlx(&data);
     }
 	return(0);
