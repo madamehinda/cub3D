@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:57:06 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/26 14:13:48 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/26 17:30:10 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,34 @@ int ft_backtacking(t_data *data, int i, int j)
     return 0;
 }
 
+
+int check_p(t_data *data)
+{
+	int i;
+	int j;
+	
+	i = 0;
+	while(data->dup[i])
+	{
+		j = 0;
+		while (data->dup[i][j])
+		{
+			if(data->dup[i][j] == 'P' && (i == 0 || i == data->height - 1))
+				return(1);
+			else if(data->dup[i][j] == 'P' && (j == 0 || data->dup[i][j + 1] == '\0'))
+				return(1);
+			j++;
+		}
+		i++;
+	}
+	return(0);
+}
+
 int	ft_dup(t_data *map)
 {
 	int	i;
 	int j;
+	
 	i = 0;
 	map->dup = (char **) malloc(sizeof(char *) * (map -> height + 1));
 	if(!map->dup)
@@ -72,9 +96,10 @@ int	ft_dup(t_data *map)
 		}
 		i++;
 	}
-	
-	// if(ft_backtacking_close(map,map->pos_x,map->pos_y))
-	// 	return(1);
+	check_p(map);
+	printf("p = %d\n",check_p(map));
+	if(check_p(map) == 1)
+		return(1);
 	return(0);
 }
 
