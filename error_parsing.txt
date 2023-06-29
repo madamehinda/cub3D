@@ -13,31 +13,6 @@ F 255,20,147
  1
 1N1
  1
-
-*********
-
-==360953== Conditional jump or move depends on uninitialised value(s)
-==360953==    at 0x113E9F: ft_sidedist (raycasting_2.c:41)
-==360953==    by 0x113DF8: ft_raycasting (raycasting_2.c:24)
-==360953==    by 0x11608C: mlx_loop (in /mnt/nfs/homes/hferjani/cub3D/cub3D)
-==360953==    by 0x11269D: ft_mlx (main.c:127)
-==360953==    by 0x1127BE: main (main.c:148)
-
-
-##################
-
-WE textures/spaceship/wall_1.xpm
-EA textures/spaceship/wall_2.xpm
-NO textures/spaceship/wall_3.xpm
-SO textures/spaceship/wall_4.xpm
-
-
-C 55,255,0
-F 255,20,147
-
- 1
-1N1
- 1
  
 
 ##################

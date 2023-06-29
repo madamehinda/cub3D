@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:54:25 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/29 16:55:35 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 17:22:25 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,13 @@ int	ft_check_parse_dir(char **str)
 		if (ft_strcmp(split[0], "EA") == 0)
 			e++;
 		ft_free(split);
+		if (n == 1 && s == 1 && w == 1 && e == 1)
+			return (0);
 		i++;
 	}
-	if (n == 1 && s == 1 && w == 1 && e == 1)
-		return (0);
-	else
+	if (n != 1 && s != 1 && w != 1 && e != 1)
 		return (1);
+	return (0);
 }
 
 int	ft_check_parse_rgb(char **str)
