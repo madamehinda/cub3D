@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:51:26 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/29 19:55:48 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 20:19:07 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,6 @@ void close_fd(t_data *map)
 }
 int	ft_check_map_dir(char **str, t_data *map)
 {
-	// int	fdn;
-	// int	fds;
-	// int	fdw;
-	// int	fde;
 
 	if (ft_check_dir(str, map) == 2)
 		return (2);

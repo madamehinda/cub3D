@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:49:19 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/29 16:39:03 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 20:19:59 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 int ft_parsing_fd(t_data *map, char **argv)
 {
-
+	map->fdn = 0;
+	map->fds = 0;
+	map->fde = 0;
+	map->fdw = 0;
 	map->nbr_line = count_lines(argv[1]);
 	if (!map->nbr_line)
 		return (destroy_mlx(map), close_fd(map),msg_err("File map is too big for int parsing ", argv[1]), 1);
