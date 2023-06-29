@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:51:26 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/29 19:15:17 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 19:55:48 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,14 @@ void	check_dir(char *str, int *j, t_data *map)
 
 void close_fd(t_data *map)
 {
-	close(map->fdn);
-	close(map->fds);
-	close(map->fdw);
-	close(map->fde);
+	if (map->fdn > 2)
+		close(map->fdn);
+	if (map->fds > 2)
+		close(map->fds);
+	if (map->fde > 2)
+		close(map->fdw);
+	if (map->fdw > 2)
+		close(map->fde);
 }
 int	ft_check_map_dir(char **str, t_data *map)
 {
