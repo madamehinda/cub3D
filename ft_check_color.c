@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:50:35 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/29 16:43:24 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 19:44:35 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,13 @@ int	check_color_format(char *str, char c, t_data *map)
 		return (1);
 	while (str[i])
 	{
-		if (str[i] == ' ' && str[i + 1] != '\0' && i++ > -1)
+		if (str[i] == ' ' || str[i] == 'F' || str[i] == 'C')
+			i++;
+		else if (str[i + 1] != '\0')
 		{
-			tmp = ft_split(str + i, ',');
+			tmp = ft_split((str + i), ',');
 			break ;
 		}
-		i++;
 	}
 	if (ft_strlen_mat(tmp) != 3 || parse_rgb(map, tmp, c) == 1)
 		return (ft_free(tmp), 1);

@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 12:38:24 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/29 19:12:56 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 19:35:54 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	ft_check_argcolor(char **str, t_data *map)
 	j = 0;
 	while (str[i])
 	{
+			// printf("=>%s\n", str[i]);
 		if (ft_check_color_arg(str[i], 'F') == 0 && j++ > -1)
 			map->f = str[i];
 		if (ft_check_color_arg(str[i], 'C') == 0 && j++ > -1)
@@ -30,7 +31,8 @@ int	ft_check_argcolor(char **str, t_data *map)
 	if (j != 2)
 		return (3);
 	j = check_color_format(map->f, 'F', map);
-	j = j + check_color_format(map->c, 'C', map);
+	j = check_color_format(map->c, 'C', map);
+	//printf("%i\n", j);
 	if (j != 0)
 		return (4);
 	return (0);
@@ -62,13 +64,8 @@ int	ft_check_line_fd(char *str)
 	split = ft_split(str, ' ');
 	if (ft_strlen(split[0]) == 0)
 		return (0);
-	printf("====>%s\n", split[0]);
 	while (str[i])
 	{
-		// if (just_space(str) == 1)
-		// 	return (0);
-		// split = ft_split(str, ' ');
-		// printf("=>%s\n", split[0]);
 		if (ft_strlen_mat(split) < 1 || ft_strlen_mat(split) > INT_MAX)
 			return (1);
 		if (split[0][0] != 'N' && split[0][0] != 'S' && split[0][0] != 'W' 
@@ -76,7 +73,6 @@ int	ft_check_line_fd(char *str)
 		&& split[0][0] != 'C' && split[0][0] != '\n' && split[0][0] != '1' 
 		&& split[0][0] != '0')
 			return (ft_free(split), 1);
-		// ft_free(split);
 		i++;
 	}
 	ft_free(split);
