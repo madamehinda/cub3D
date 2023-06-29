@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:45:38 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/29 12:55:17 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 17:00:54 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	setup_game(t_data *data)
 	data->tab_fd = NULL;
 	data->begin = 0;
 	data->dup = NULL;
+	data->negatif = 0;
 	setup_more(data);
 }
 

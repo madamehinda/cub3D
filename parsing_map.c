@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:54:25 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/29 16:50:56 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 16:55:35 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,9 @@ int	ft_check_map_fd(t_data *map, char **str)
 	j = 0;
 	k = 0;
 	
-	if (!str || !str[0])
-		return (1);
+	// if (!str || !str[0])
+	// 	return (1);
+	// printf("str[0] = %s\n", str[0]);
 	while (str[k] && j <= 5)
 	{
 		count_ligne_valid(str[k], &j, &i);

@@ -1,21 +1,4 @@
 
-
-
-leak si pas de map dans la map
-
-WE textures/spaceship/wall_1.xpm
-EA textures/spaceship/wall_2.xpm
-NO textures/spaceship/wall_3.xpm
-SO textures/spaceship/wall_4.xpm
-
-
-C 55,255,0
-F 255,20,147
-
-##################
-
-
-
 ##################
 
 WE textures/spaceship/wall_1.xpm
