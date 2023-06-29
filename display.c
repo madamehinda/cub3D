@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 19:16:57 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/23 22:37:40 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 12:35:15 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	display_texture(t_data *game, int x, int y)
 		if (y < DISPLAY_HEIGHT && x < DISPLAY_WIDTH)
 			game->mlx.addr[y * game->mlx.line_length / 4 + x]
 				= game->texture[game->t.texdir].addr[game->t.tex_y
-				* game->texture[game->t.texdir].line_length / 4 + game->t.tex_x];
+				* game->texture[game->t.texdir].line_length / 4
+				+ game->t.tex_x];
 	}
 }

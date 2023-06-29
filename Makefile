@@ -126,6 +126,7 @@ CC 		= 	gcc
 
  SRC		= check_fd.c \
 		ft_check_color.c \
+		ft_check_color2.c \
 		ft_direction.c \
 		init.c \
 		init_images.c \

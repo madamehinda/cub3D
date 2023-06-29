@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:51:26 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/20 14:53:51 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 12:48:56 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,26 @@ void	check_dir(char *str, int *j, t_data *map)
 
 int	ft_check_map_dir(char **str, t_data *map)
 {
+	int	fdn;
+	int	fds;
+	int	fdw;
+	int	fde;
+
+	if (ft_check_dir(str, map) == 2)
+		return (2);
+	fdn = open(map->north, O_RDONLY);
+	fds = open(map->south, O_RDONLY);
+	fde = open(map->east, O_RDONLY);
+	fdw = open(map->west, O_RDONLY);
+	if (fdn == -1 || fds == -1 || fde == -1 || fdw == -1)
+		return (3);
+	return (0);
+}
+
+int	ft_check_dir(char **str, t_data *map)
+{
 	int	i;
 	int	j;
-	int	fdN;
-	int	fdS;
-	int	fdW;
-	int	fdE;
 
 	i = 0;
 	j = 0;
@@ -71,11 +85,5 @@ int	ft_check_map_dir(char **str, t_data *map)
 	}
 	if (j != 4)
 		return (2);
-	fdN = open(map->north, O_RDONLY);
-	fdS = open(map->south, O_RDONLY);
-	fdE = open(map->east, O_RDONLY);
-	fdW = open(map->west, O_RDONLY);
-	if (fdN == -1 || fdS == -1 || fdE == -1 || fdW == -1)
-		return (3);
 	return (0);
 }

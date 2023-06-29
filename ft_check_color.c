@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:50:35 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/20 14:50:36 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 12:40:27 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int	check_in_color_arg(char *str)
 	return (0);
 }
 
-//tableax rgb F et C
-//fct ft_atoii fct changee dans la libft
 int	parse_rgb(t_data *map, char **tmp, char c)
 {
 	int	i;
@@ -56,6 +54,7 @@ int	parse_rgb(t_data *map, char **tmp, char c)
 	}
 	return (0);
 }
+
 int	util_check_color_format(char *str)
 {
 	int	i;
@@ -65,8 +64,8 @@ int	util_check_color_format(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] == ',' && (ft_isdigit(str[i + 1]) != 0 || ft_isdigit(str[i
-					- 1] != 0)))
+		if (str[i] == ',' && (ft_isdigit(str[i + 1]) != 0
+				|| ft_isdigit(str[i - 1] != 0)))
 			j++;
 		i++;
 	}
@@ -74,6 +73,7 @@ int	util_check_color_format(char *str)
 		return (1);
 	return (0);
 }
+
 int	check_color_format(char *str, char c, t_data *map)
 {
 	int		i;
@@ -109,30 +109,5 @@ int	ft_check_color_arg(char *str, char c)
 	if (ft_strlen_mat(tmp) != 2 || ft_strlen(tmp[0]) != 1)
 		return (ft_free(tmp), 2);
 	ft_free(tmp);
-	return (0);
-}
-
-int	ft_check_argcolor(char **str, t_data *map)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (str[i])
-	{
-		if (ft_check_color_arg(str[i], 'F') == 0 && j++ > -1)
-			//pour gagner une ligne et avancer mon j
-			map->f = str[i];
-		if (ft_check_color_arg(str[i], 'C') == 0 && j++ > -1)
-			map->c = str[i];
-		i++;
-	}
-	if (j != 2)
-		return (3);
-	j = check_color_format(map->f, 'F', map);
-	j = j + check_color_format(map->c, 'C', map);
-	if (j != 0)
-		return (4);
 	return (0);
 }

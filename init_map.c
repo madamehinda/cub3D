@@ -6,13 +6,13 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:45:38 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/26 14:06:53 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 12:55:17 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void setup_more(t_data *data)
+void	setup_more(t_data *data)
 {
 	data->mlx.img = NULL;
 	data->mlx.img_swap = NULL;
@@ -41,14 +41,13 @@ void setup_more(t_data *data)
 	data->mlx.endian = 0;
 }
 
-void setup_game(t_data *data)
+void	setup_game(t_data *data)
 {
 	data->north = NULL;
 	data->south = NULL;
 	data->west = NULL;
 	data->east = NULL;
 	data->height = 0;
-	// data->width = 0;
 	data->floor = -1;
 	data->ceiling = -1;
 	data->r = -1;
@@ -56,12 +55,12 @@ void setup_game(t_data *data)
 	data->b = -1;
 	data->nbr_line = 0;
 	data->size_line = 0;
-	data->tab = NULL;//matrice pour parsing
+	data->tab = NULL;
 	data->f = NULL;
 	data->c = NULL;
 	data->dx = 0;
 	data->dy = 0;
-	data->count = 0;//count
+	data->count = 0;
 	data->pos_x = 0;
 	data->pos_y = 0;
 	data->tab_fd = NULL;
@@ -70,10 +69,10 @@ void setup_game(t_data *data)
 	setup_more(data);
 }
 
-void ft_init_pos(t_data *data)
+void	ft_init_pos(t_data *data)
 {
-	data->direction.E=0;
-	data->direction.W=0;
-	data->direction.S=0;
-	data->direction.N=0;
+	data->direction.E = 0;
+	data->direction.W = 0;
+	data->direction.S = 0;
+	data->direction.N = 0;
 }

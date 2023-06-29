@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 14:57:11 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/24 16:55:08 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 12:35:47 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	exit_game(t_data *map)
 {
 	int	i;
 
-	printf("Bye Bitch!\n");
 	i = 0;
 	destroy_mlx(map);
 	while (i < 4)

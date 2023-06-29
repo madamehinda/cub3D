@@ -218,10 +218,13 @@ typedef struct s_data
 	t_mlx		minimap;
 	t_pos		direction;
 	t_texture	t;
+	int		negatif;
 }	t_data ;
 
 
 int	ft_check_cub(char *str);
+int	ft_check_dir(char **str, t_data *map);
+int	ft_check_tab_fd(t_data *map);
 int	check_in_color_arg(char *str);
 int	parse_rgb(t_data *map, char **tmp, char c);
 int	check_color_format(char *str, char c, t_data *map);
@@ -233,6 +236,7 @@ void setup_game(t_data *data);
 int	ft_check_line_fd(char *str);
 int	ft_check_fd(t_data *map);
 int ft_parsing_fd(t_data *map,char **argv);
+int ft_parsing_fd2(t_data *map, char **argv);
 int	ft_check_parse_dir(char **str);
 int	ft_check_parse_rgb(char **str);
 void	count_ligne_valid(char *str,int *j,int *i);

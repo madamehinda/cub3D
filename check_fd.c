@@ -6,13 +6,12 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:31:52 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/20 14:31:57 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 12:33:13 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-//function pout check .cub
 int	ft_check_cub(char *str)
 {
 	int	size;

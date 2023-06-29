@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:48:40 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/26 14:12:05 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 13:04:13 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ void	init_again(t_data *game, int x)
 	game->ray.hit = 0;
 	game->ray.perp_wall_dist = 0;
 	game->ray.camera_x = 2 * x / (double)DISPLAY_WIDTH - 1;
-	game->ray.ray_dir.x = game->ray.dir.x + game->ray.plane.x * game->ray.camera_x;
-	game->ray.ray_dir.y = game->ray.dir.y + game->ray.plane.y * game->ray.camera_x;
+	game->ray.ray_dir.x = game->ray.dir.x + game->ray.plane.x
+		* game->ray.camera_x;
+	game->ray.ray_dir.y = game->ray.dir.y + game->ray.plane.y
+		* game->ray.camera_x;
 	game->ray.map_x = (int)game->ray.pos.x;
 	game->ray.map_y = (int)game->ray.pos.y;
 	game->ray.move_speed = 0.1;
@@ -63,3 +65,38 @@ void	initialise_window(t_data *data)
 	}
 }
 
+void	assign_direction(t_data *game)
+{
+	if (game->direction.N == 1)
+		game->ray.dir.x = -1;
+	if (game->direction.S == 1)
+		game->ray.dir.x = 1;
+	if (game->direction.E == 1)
+		game->ray.dir.y = 1;
+	if (game->direction.W == 1)
+		game->ray.dir.y = -1;
+	if (game->direction.N == 1)
+		game->ray.plane.y = 0.66;
+	if (game->direction.S == 1)
+		game->ray.plane.y = -0.66;
+	if (game->direction.E == 1)
+		game->ray.plane.x = 0.66;
+	if (game->direction.W == 1)
+		game->ray.plane.x = -0.66;
+}
+
+void	ft_init(t_data *data)
+{
+	data->mlx.forward = 0;
+	data->mlx.back = 0;
+	data->mlx.left = 0;
+	data->mlx.right = 0;
+	data->mlx.rotate_right = 0;
+	data->mlx.rotate_left = 0;
+	data->ray.pos.x = (double)data->pos_x + 0.5;
+	data->ray.pos.y = (double)data->pos_y + 0.5;
+	data->ray.dir.x = 0;
+	data->ray.dir.y = 0;
+	data->ray.plane.x = 0;
+	data->ray.plane.y = 0;
+}
