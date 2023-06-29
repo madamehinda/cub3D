@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:51:26 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/29 16:29:41 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 19:15:17 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,22 @@ void	check_dir(char *str, int *j, t_data *map)
 	char	**split;
 
 	split = ft_split(str, ' ');
-	if (ft_strcmp(split[0], "NO") == 0 && ft_strlen(split[0]) == 2)
+	if (split[0] && ft_strcmp(split[0], "NO") == 0 && ft_strlen(split[0]) == 2)
 	{
 		map->north = ft_strddup(split[1]);
 		(*j)++;
 	}
-	if (ft_strcmp(split[0], "SO") == 0 && ft_strlen(split[0]) == 2)
+	if (split[0] && ft_strcmp(split[0], "SO") == 0 && ft_strlen(split[0]) == 2)
 	{
 		map->south = ft_strddup(split[1]);
 		(*j)++;
 	}
-	if (ft_strcmp(split[0], "WE") == 0 && ft_strlen(split[0]) == 2)
+	if (split[0] && ft_strcmp(split[0], "WE") == 0 && ft_strlen(split[0]) == 2)
 	{
 		map->west = ft_strddup(split[1]);
 		(*j)++;
 	}
-	if (ft_strcmp(split[0], "EA") == 0 && ft_strlen(split[0]) == 2)
+	if (split[0] && ft_strcmp(split[0], "EA") == 0 && ft_strlen(split[0]) == 2)
 	{
 		map->east = ft_strddup(split[1]);
 		(*j)++;
