@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:49:36 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/02 20:49:37 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 16:35:32 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int msg_err(char *msg,char *argv)
 {
-	printf("ERROR\n");
-	printf("%s",msg);
+	ft_putstr_fd("ERROR\n",2);
+	ft_putstr_fd(msg,2);
 	if(argv)
-		printf("%s",argv);
-	printf("\n");
+		ft_putstr_fd(argv,2);
+	ft_putstr_fd("\n", 2);
 	exit(EXIT_FAILURE);
 	return(1);
 }

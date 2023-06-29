@@ -218,10 +218,14 @@ typedef struct s_data
 	t_mlx		minimap;
 	t_pos		direction;
 	t_texture	t;
-	int		negatif;
+	int			fdn;
+	int			fds;
+	int			fdw;
+	int			fde;
+	int			negatif;
 }	t_data ;
 
-
+void	close_fd(t_data *map);
 int	ft_check_cub(char *str);
 int	ft_check_dir(char **str, t_data *map);
 int	ft_check_tab_fd(t_data *map);

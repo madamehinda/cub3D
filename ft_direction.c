@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:51:26 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/29 12:48:56 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 16:29:41 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,20 +53,27 @@ void	check_dir(char *str, int *j, t_data *map)
 	ft_free(split);
 }
 
+void close_fd(t_data *map)
+{
+	close(map->fdn);
+	close(map->fds);
+	close(map->fdw);
+	close(map->fde);
+}
 int	ft_check_map_dir(char **str, t_data *map)
 {
-	int	fdn;
-	int	fds;
-	int	fdw;
-	int	fde;
+	// int	fdn;
+	// int	fds;
+	// int	fdw;
+	// int	fde;
 
 	if (ft_check_dir(str, map) == 2)
 		return (2);
-	fdn = open(map->north, O_RDONLY);
-	fds = open(map->south, O_RDONLY);
-	fde = open(map->east, O_RDONLY);
-	fdw = open(map->west, O_RDONLY);
-	if (fdn == -1 || fds == -1 || fde == -1 || fdw == -1)
+	map->fdn = open(map->north, O_RDONLY);
+	map->fds = open(map->south, O_RDONLY);
+	map->fde = open(map->east, O_RDONLY);
+	map->fdw = open(map->west, O_RDONLY);
+	if (map->fdn == -1 || map->fds == -1 || map->fde == -1 || map->fdw == -1)
 		return (3);
 	return (0);
 }

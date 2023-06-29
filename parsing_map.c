@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:54:25 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/26 14:05:54 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 16:50:56 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,9 @@ int	ft_check_map_fd(t_data *map, char **str)
 	i = 0;
 	j = 0;
 	k = 0;
+	
+	if (!str || !str[0])
+		return (1);
 	while (str[k] && j <= 5)
 	{
 		count_ligne_valid(str[k], &j, &i);
@@ -117,7 +120,7 @@ int	ft_check_map_fd(t_data *map, char **str)
 		return (1);
 	if (map->begin != k)
 		return (1);
-	printf("%s\n", str[k]);
+	//printf("%s\n", str[k]);
 	return (0);
 }
 
@@ -222,7 +225,6 @@ int	ft_check_nbr_player(char **str)
 		}
 		i++;
 	}
-	printf("nb====%d\n", nb);
 	if (nb == 1)
 		return (0);
 	else
@@ -273,9 +275,9 @@ void	ft_parse_player(t_data *map)
 
 int	check_player(t_data *map)
 {
-	int	j;
+	//int	j;
 
-	j = 0;
+//	j = 0;
 	if (ft_check_nbr_player(map->tab))
 		return (1);
 	if (pos_player(map->tab, map))
@@ -285,12 +287,12 @@ int	check_player(t_data *map)
 	ft_parse_player(map);
 	if (ft_dup(map))
 		return (3);
-	printf("\n******tableau dup******\n");
-	while (map->dup[j])
-	{
-		printf("%s", map->dup[j]);
-		j++;
-	}
-	printf("\n");
+	// printf("\n******tableau dup******\n");
+	// while (map->dup[j])
+	// {
+	// 	printf("%s", map->dup[j]);
+	// 	j++;
+	// }
+	//printf("\n");
 	return (0);
 }

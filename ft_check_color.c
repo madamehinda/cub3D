@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:50:35 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/29 12:40:27 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 16:43:24 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,7 @@ int	parse_rgb(t_data *map, char **tmp, char c)
 	{
 		if (ft_atoii(tmp[i]) == -1)
 			return (1);
-		printf("I = %d et tmp[i] = %s\n", i, tmp[i]);
 		map->f_rgb[i] = ft_atoii(tmp[i]);
-		printf("map->f_rgb[%d] = %d\n", i, map->f_rgb[i]);
 		i++;
 	}
 	return (0);
