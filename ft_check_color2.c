@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 12:38:24 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/29 19:35:54 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 19:50:37 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	ft_check_line_fd(char *str)
 	split = NULL;
 	split = ft_split(str, ' ');
 	if (ft_strlen(split[0]) == 0)
-		return (0);
+		return (ft_free(split), 0);
 	while (str[i])
 	{
 		if (ft_strlen_mat(split) < 1 || ft_strlen_mat(split) > INT_MAX)
