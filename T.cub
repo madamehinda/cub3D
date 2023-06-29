@@ -1,16 +1,19 @@
+
+
 WE textures/spaceship/wall_1.xpm
-EA textures/spaceship/wall_2.xpm
-NO textures/spaceship/wall_3.xpm
 SO textures/spaceship/wall_4.xpm
 
 
 C 55,255,0
-F 255,20,147
+F 91,20,147
 
- 1
-1N1
- 1
+NO textures/spaceship/wall_3.xpm
 
+EA textures/spaceship/wall_2.xpm
 
+ 111111
+10    N1
+1000001
+ 111111
 
-
+ 
