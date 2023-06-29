@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:54:25 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/29 17:22:25 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 18:01:45 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ int	ft_check_parse_rgb(char **str)
 	while (str[i])
 	{
 		split = ft_split(str[i], ' ');
-		if (ft_strcmp(split[0], "C") == 0)
+		if (split && split[0] && ft_strcmp(split[0], "C") == 0)
 			c++;
-		if (ft_strcmp(split[0], "F") == 0)
+		if (split && split[0] && ft_strcmp(split[0], "F") == 0)
 			f++;
 		ft_free(split);
 		i++;
