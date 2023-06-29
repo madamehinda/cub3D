@@ -3,8 +3,8 @@
 WE textures/spaceship/wall_1.xpm
 SO textures/spaceship/wall_4.xpm
 
-C 55,255,0
-F 91,20,147
+C 255,255,0
+F 291,20,147
 
 NO textures/spaceship/wall_3.xpm
 

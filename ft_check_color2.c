@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 12:38:24 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/29 19:50:37 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 20:05:37 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	ft_check_argcolor(char **str, t_data *map)
 	j = 0;
 	while (str[i])
 	{
-			// printf("=>%s\n", str[i]);
 		if (ft_check_color_arg(str[i], 'F') == 0 && j++ > -1)
 			map->f = str[i];
 		if (ft_check_color_arg(str[i], 'C') == 0 && j++ > -1)
@@ -31,8 +30,7 @@ int	ft_check_argcolor(char **str, t_data *map)
 	if (j != 2)
 		return (3);
 	j = check_color_format(map->f, 'F', map);
-	j = check_color_format(map->c, 'C', map);
-	//printf("%i\n", j);
+	j = j + check_color_format(map->c, 'C', map);
 	if (j != 0)
 		return (4);
 	return (0);
