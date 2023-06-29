@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:49:19 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/29 14:02:26 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 15:27:08 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	ft_parsing_fd2(t_data *map, char **argv)
 		return (destroy_mlx(map), msg_err("map ligne dans map ", argv[1]));
 	if (check_player(map))
 		return (destroy_mlx(map),
-			msg_err("multiple player or no player or unclosed ", argv[1]));
+			msg_err("multiple player or no player or unclosed or space in map", argv[1]));
 	return (0);
 }
 
@@ -129,23 +129,20 @@ int	ft_mlx(t_data *game)
 }
 
 
-int main(int argc,char **argv)
+int main(int argc,char **argv, char **env)
 {
 	t_data data;
 	
+	if (!env[0])
+		return(printf("no env\n"),0);
+	if (ft_strcmp("USER=hferjani", env[0]) != 0)
+		return(printf("no env\n"),0);
 	setup_game(&data);
 	if(argc==2)
 	{
 		if(!ft_check_cub(argv[1]))
 			return(msg_err("error extention .cub ",argv[1]));
 		ft_parsing_fd(&data,argv);
-		printf("nbr line %d\n",data.nbr_line);
-		// int i = 0;
-		// while (i <= data.nbr_line)
-		// {
-		// 	printf("%s", data.tab[i]);
-		// 	i++;
-		// }
 		if (ft_initialise_and_create_window(&data))
 		{
 			ft_mlx(&data);

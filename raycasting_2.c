@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 17:57:53 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/29 14:30:15 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 15:24:00 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ void	ft_increment_ray(t_data *game)
 			game->negatif = 1;
 			break;
 		}
-		printf("x is %d and y is %d\n", game->ray.map_x, game->ray.map_y);
 		if (game->tab[game->ray.map_x][game->ray.map_y] == '1')
 			game->ray.hit = 1;
 	}
