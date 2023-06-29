@@ -4,8 +4,230 @@
 
 
 
-******************LEAK*********************
+valgrind --track-fds=yes ./cub3D T.cub
+==358960== Memcheck, a memory error detector
+==358960== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==358960== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==358960== Command: ./cub3D T.cub
+==358960== 
+ERROR
+empty map 
+==358960== 
+==358960== FILE DESCRIPTORS: 7 open (3 std) at exit.
+==358960== Open file descriptor 3: T.cub
+==358960==    at 0x4BC46EB: open (open64.c:41)
+==358960==    by 0x112816: count_lines (util_parse_fd.c:21)
+==358960==    by 0x111F66: ft_parsing_fd (main.c:18)
+==358960==    by 0x11279C: main (main.c:145)
+==358960== 
+==358960== Open file descriptor 103: /usr/share/code/v8_context_snapshot.bin
+==358960==    <inherited from parent>
+==358960== 
+==358960== Open file descriptor 41: /usr/share/code/resources/app/node_modules.asar
+==358960==    <inherited from parent>
+==358960== 
+==358960== Open file descriptor 39: /mnt/nfs/homes/hferjani/.config/Code/logs/20230629T122828/ptyhost.log
+==358960==    <inherited from parent>
+==358960== 
+==358960== 
+==358960== HEAP SUMMARY:
+==358960==     in use at exit: 0 bytes in 0 blocks
+==358960==   total heap usage: 2 allocs, 2 frees, 1,025 bytes allocated
+==358960== 
+==358960== All heap blocks were freed -- no leaks are possible
+==358960== 
+==358960== For lists of detected and suppressed errors, rerun with: -s
+==358960== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 
-env -i valgrind --leak-check=full --show-leak-kinds=all ./cub3D map/1.cub
+##################
+
+Error verifier STDERR
+
+##################
+
+retirer les printf
+
+##################
+
+leak si pas de map dans la map
+
+WE textures/spaceship/wall_1.xpm
+EA textures/spaceship/wall_2.xpm
+NO textures/spaceship/wall_3.xpm
+SO textures/spaceship/wall_4.xpm
 
 
+C 55,255,0
+F 255,20,147
+
+##################
+
+
+
+##################
+
+WE textures/spaceship/wall_1.xpm
+EA textures/spaceship/wall_2.xpm
+NO textures/spaceship/wall_3.xpm
+SO textures/spaceship/wall_4.xpm
+
+
+C 55,255,0
+F 255,20,147
+
+ 1
+1N1
+ 1
+
+*********
+
+==360953== Conditional jump or move depends on uninitialised value(s)
+==360953==    at 0x113E9F: ft_sidedist (raycasting_2.c:41)
+==360953==    by 0x113DF8: ft_raycasting (raycasting_2.c:24)
+==360953==    by 0x11608C: mlx_loop (in /mnt/nfs/homes/hferjani/cub3D/cub3D)
+==360953==    by 0x11269D: ft_mlx (main.c:127)
+==360953==    by 0x1127BE: main (main.c:148)
+
+
+##################
+
+WE textures/spaceship/wall_1.xpm
+EA textures/spaceship/wall_2.xpm
+NO textures/spaceship/wall_3.xpm
+SO textures/spaceship/wall_4.xpm
+
+
+C 55,255,0
+F 255,20,147
+
+ 1
+1N1
+ 1
+ 
+
+##################
+
+==362308== Memcheck, a memory error detector
+==362308== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==362308== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==362308== Command: ./cub3D T.cub
+==362308== 
+
+##################
+
+Message d'erreur avec trop de retour a la ligne si un sprint NOK
+
+WE textures/spaceship/wall_1.xpm
+SO textures/spaceship/wall_4.xpm
+
+
+C 55,255,0
+F 255,20,147
+
+NO textures/spaceship/wall_31.xpm
+
+EA textures/spaceship/wall_2.xpm
+
+ 1111111
+10    N1
+ 1111111
+
+
+*******
+
+ERROR
+error parse direction or error texture pathT.cub
+==362308== 
+==362308== HEAP SUMMARY:
+==362308==     in use at exit: 0 bytes in 0 blocks
+==362308==   total heap usage: 767 allocs, 767 frees, 16,045 bytes allocated
+==362308== 
+==362308== All heap blocks were freed -- no leaks are possible
+==362308== 
+==362308== For lists of detected and suppressed errors, rerun with: -s
+==362308== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+##################
+
+
+WE textures/spaceship/wall_1.xpm
+SO textures/spaceship/wall_4.xpm
+
+
+C 55,255,0
+F -255,20,147
+
+NO textures/spaceship/wall_3.xpm
+
+EA textures/spaceship/wall_2.xpm
+
+ 1111111
+10    N1
+ 1111111
+
+##################
+
+ verifier couleur negative et overflow
+
+################## SEGFAULT
+
+WE textures/spaceship/wall_1.xpm
+SO textures/spaceship/wall_4.xpm
+
+
+C a,255,0
+F 91,20,147
+
+NO textures/spaceship/wall_3.xpm
+
+EA textures/spaceship/wall_2.xpm
+
+ 111111
+10    N1
+1000001
+ 111111
+ 000000
+ 000000
+ 000000
+ 
+#####################
+
+
+WE textures/spaceship/wall_1.xpm
+SO textures/spaceship/wall_4.xpm
+
+
+C 55,255,0
+F 91,20,147
+
+NO textures/spaceship/wall_3.xpm
+
+EA textures/spaceship/wall_2.xpm
+
+ 111111
+10    N1
+1000001
+ 111111
+ 000000
+ 
+#####################
+
+
+WE textures/spaceship/wall_1.xpm
+SO textures/spaceship/wall_4.xpm
+
+
+C 55,255,0
+F 91,20,147
+
+NO textures/spaceship/wall_3.xpm
+
+EA textures/spaceship/wall_2.xpm
+
+ 111111
+10    N1
+1000001
+ 111111
+ 
+
+#####################

@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:17:24 by imraoui           #+#    #+#             */
-/*   Updated: 2023/06/25 14:17:10 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/29 16:16:53 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@
 // 	return (nb);
 // }
 
+#include <stdio.h>
+
 long int	ft_atoii(const char *nptr)
 {
 	int			x;
@@ -45,18 +47,22 @@ long int	ft_atoii(const char *nptr)
 	nb = 0;
 	if (!nptr[x])
 		return (-1);
+	if (!ft_isdigit(nptr[x]))
+		return (-1);
 	while ((nptr[x] >= '0' && nptr[x] <= '9') && nptr[x] != '\0')
 	{
 		nb = nb * 10 + (nptr[x] - 48);
 		x++;
+		if (nb > 255)
+			return (-1);
 	}
-	if ((nb > 255) || (nb < 0) || !nptr[0])
-		return (-1);
 	if (nptr[x] == '\n')
 	{
 		if (nptr[x + 1] != '\0')
 			return (-1);
 	}
+	else if (nptr[x] != '\0')
+		return (-1);
 	return (nb);
 }
 /*
