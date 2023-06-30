@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:54:25 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/29 18:20:48 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/30 11:57:22 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,60 @@ int	ft_check_parse_dir(char **str)
 		i++;
 	}
 	if (n != 1 && s != 1 && w != 1 && e != 1)
+	{
+		printf("IM HERE\n");
 		return (1);
+	}
 	return (0);
 }
+// void	init_dir(t_data *map)
+// {
+// 	map->n = 0;
+// 	map->s = 0;
+// 	map->w = 0;
+// 	map->e = 0;
+// }
+// int	ft_check_parse_dir(char **str, t_data *map)
+// {
+// 	char	**split;
+// 	// int		n;
+// 	// int		s;
+// 	// int		w;
+// 	// int		e;
+// 	int		i;
 
+// 	i = 0;
+// 	init_dir(map);
+// 	while (str[i])
+// 	{
+// 		printf("IM HERE\n");
+// 		split = ft_split(str[i], ' ');
+// 		if (ft_strcmp(split[0], "NO") == 0)
+// 			map->n++;
+// 		if (ft_strcmp(split[0], "SO") == 0)
+// 			map->s++;
+// 		if (ft_strcmp(split[0], "WE") == 0)
+// 			map->w++;
+// 		if (ft_strcmp(split[0], "EA") == 0)
+// 			map->e++;
+// 		ft_free(split);
+// 		if (map->n == 1 && map->s == 1 && map->w == 1 && map->e == 1)
+// 		{
+// 			printf("n is %d\n", map->n);
+// 			printf("s is %d\n", map->s);
+// 			printf("w is %d\n", map->w);
+// 			printf("e is %d\n", map->e);
+// 			return (0);
+// 		}
+// 		i++;
+// 	}
+// 	if (map->n != 1 && map->s != 1 && map->w != 1 && map->e != 1)
+// 	{
+		
+// 		return (1);
+// 	}
+// 	return (0);
+// }
 int	ft_check_parse_rgb(char **str)
 {
 	char	**split;
@@ -108,10 +158,6 @@ int	ft_check_map_fd(t_data *map, char **str)
 	i = 0;
 	j = 0;
 	k = 0;
-	
-	// if (!str || !str[0])
-	// 	return (1);
-	// printf("str[0] = %s\n", str[0]);
 	while (str[k] && j <= 5)
 	{
 		count_ligne_valid(str[k], &j, &i);
@@ -122,7 +168,6 @@ int	ft_check_map_fd(t_data *map, char **str)
 		return (1);
 	if (map->begin != k)
 		return (1);
-	//printf("%s\n", str[k]);
 	return (0);
 }
 
@@ -193,6 +238,7 @@ int	parse_map(t_data *map)
 	map->tab[j] = '\0';
 	return (0);
 }
+
 int	ft_check_carte_line_empty(t_data *map)
 {
 	int	i;
@@ -206,6 +252,7 @@ int	ft_check_carte_line_empty(t_data *map)
 	}
 	return (0);
 }
+
 int	ft_check_nbr_player(char **str)
 {
 	int	i;
@@ -232,6 +279,7 @@ int	ft_check_nbr_player(char **str)
 	else
 		return (1);
 }
+
 int	pos_player(char **str, t_data *map)
 {
 	int	i;
@@ -277,24 +325,12 @@ void	ft_parse_player(t_data *map)
 
 int	check_player(t_data *map)
 {
-	//int	j;
-
-//	j = 0;
 	if (ft_check_nbr_player(map->tab))
 		return (1);
 	if (pos_player(map->tab, map))
 		return (2);
-	// printf("pos_x%d\n", map->pos_x);
-	// printf("pos_y%d\n", map->pos_y);
 	ft_parse_player(map);
 	if (ft_dup(map))
 		return (3);
-	// printf("\n******tableau dup******\n");
-	// while (map->dup[j])
-	// {
-	// 	printf("%s", map->dup[j]);
-	// 	j++;
-	// }
-	//printf("\n");
 	return (0);
 }
