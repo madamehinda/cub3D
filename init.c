@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:48:40 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/29 13:04:13 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/30 14:57:53 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,21 +67,21 @@ void	initialise_window(t_data *data)
 
 void	assign_direction(t_data *game)
 {
-	if (game->direction.N == 1)
+	if (game->direction.n == 1)
 		game->ray.dir.x = -1;
-	if (game->direction.S == 1)
+	if (game->direction.s == 1)
 		game->ray.dir.x = 1;
-	if (game->direction.E == 1)
+	if (game->direction.e == 1)
 		game->ray.dir.y = 1;
-	if (game->direction.W == 1)
+	if (game->direction.w == 1)
 		game->ray.dir.y = -1;
-	if (game->direction.N == 1)
+	if (game->direction.n == 1)
 		game->ray.plane.y = 0.66;
-	if (game->direction.S == 1)
+	if (game->direction.s == 1)
 		game->ray.plane.y = -0.66;
-	if (game->direction.E == 1)
+	if (game->direction.e == 1)
 		game->ray.plane.x = 0.66;
-	if (game->direction.W == 1)
+	if (game->direction.w == 1)
 		game->ray.plane.x = -0.66;
 }
 

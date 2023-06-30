@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/30 14:54:35 by hferjani          #+#    #+#             */
+/*   Updated: 2023/06/30 14:56:44 by hferjani         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CUB3D_H
 # define CUB3D_H
 
@@ -60,7 +72,7 @@
 
 # define PI 3.14159265359
 # define TWO_PI 6.28318530718
-# define FOV_ANGLE (60 * (PI / 180))
+//# define FOV_ANGLE (60 * (PI / 180))
 # define SPEED 0.09
 # define ROT_SPEED 0.09
 
@@ -138,10 +150,10 @@ typedef struct s_mlx
 
 typedef struct s_pos
 {
-	int			N;
-	int			S;
-	int			E;
-	int			W;
+	int			n;
+	int			s;
+	int			e;
+	int			w;
 
 }				t_pos;
 
@@ -213,7 +225,10 @@ int				ft_check_fd(t_data *map);
 int				ft_parsing_fd(t_data *map, char **argv);
 int				ft_parsing_fd2(t_data *map, char **argv);
 int				ft_parsing_fd3(t_data *map, char **argv);
-int				ft_check_parse_dir(char **str);
+//int				ft_check_parse_dir(char **str);
+int				ft_check_parse_dir(t_data *map);
+int				ft_check_carte_line_empty(t_data *map);
+int				ft_check_line_empty(char *str);
 int				ft_check_parse_rgb(char **str);
 void			count_ligne_valid(char *str, int *j, int *i);
 int				ft_check_map_fd(t_data *map, char **str);
@@ -235,6 +250,8 @@ void			ft_bzero_dup(char *dup);
 int				ft_dup(t_data *map);
 int				ft_check_symbol(t_data *map);
 void			ft_free_dir(t_data *map);
+void			check_dir2(char **split, int *j, t_data *map);
+void			ft_sidedist2(t_data *game);
 
 void			assign_direction(t_data *data);
 
@@ -248,8 +265,8 @@ int				exit_game(t_data *map);
 void			set_player_pos(t_data *data, char **map);
 void			ft_setup(t_data *data);
 void			setup_player(t_data *data);
-void			mlx_render_draw_line(void *mlx_ptr, void *win_ptr, int x1,
-					int y1, int x2, int y2, int color);
+// void			mlx_render_draw_line(void *mlx_ptr, void *win_ptr, int x1,
+// 					int y1, int x2, int y2, int color);
 int				press_key(int key_code, t_data *map);
 int				release_key(int key_code, t_data *map);
 void			img_pix_put_color(t_data *data, int x, int y, int color);

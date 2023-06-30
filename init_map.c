@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:45:38 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/29 17:00:54 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/30 14:58:22 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ void	setup_game(t_data *data)
 
 void	ft_init_pos(t_data *data)
 {
-	data->direction.E = 0;
-	data->direction.W = 0;
-	data->direction.S = 0;
-	data->direction.N = 0;
+	data->direction.e = 0;
+	data->direction.w = 0;
+	data->direction.s = 0;
+	data->direction.n = 0;
 }

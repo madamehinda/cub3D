@@ -6,73 +6,19 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 17:57:53 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/29 15:24:00 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/30 13:40:12 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// Loop principale (rendu, maj affichage, maj mouvements)
-int	ft_raycasting(t_data *data)
-{
-	int		x;
-	
-    x = 0;
-	while (x < DISPLAY_WIDTH)
-	{
-		init_again(data, x);
-		ft_sidedist(data);
-		display_column(data, x);
-		x++;
-	}
-	mlx_put_image_to_window(data->mlx.mlx_ptr,
-		data->mlx.mlx_win, data->mlx.img, 0, 0);
-	ft_forward_back(data);
-	ft_left_right(data);
-	ft_rotate_right(data);
-	ft_swap(data);
-	return (0);
-}
-
-
-// Calcul distance départ du rayon et premier contact mur, sur axes x et Y
-void	ft_sidedist(t_data *game)
-{
-	if (game->negatif == 1)
-		return ;
-	if (game->ray.ray_dir.x < 0)
-	{
-		game->ray.step_x = -1;
-		game->ray.side_dist.x = (game->ray.pos.x - game->ray.map_x)
-			* game->ray.delta_dist.x;
-	}
-	else
-	{
-		game->ray.step_x = 1;
-		game->ray.side_dist.x = (game->ray.map_x + 1.0 - game->ray.pos.x)
-			* game->ray.delta_dist.x;
-	}
-	if (game->ray.ray_dir.y < 0)
-	{
-		game->ray.step_y = -1;
-		game->ray.side_dist.y = (game->ray.pos.y - game->ray.map_y)
-			* game->ray.delta_dist.y;
-	}
-	else
-	{
-		game->ray.step_y = 1;
-		game->ray.side_dist.y = (game->ray.map_y + 1.0 - game->ray.pos.y)
-			* game->ray.delta_dist.y;
-	}
-	ft_increment_ray(game);
-}
-
-// Algo raycasting: généré représentation 3d
+// Algo raycasting: généré représentation 3d. gere incrementation rayon emis 
+// depuis la camera jusqu'à contact avec mur
 void	ft_increment_ray(t_data *game)
 {
 	while (game->ray.hit == 0)
 	{
-		game-> negatif = 0;
+		game->negatif = 0;
 		if (game->ray.side_dist.x < game->ray.side_dist.y)
 		{
 			game->ray.side_dist.x += game->ray.delta_dist.x;
@@ -88,7 +34,7 @@ void	ft_increment_ray(t_data *game)
 		if (game->ray.map_x < 0 || game->ray.map_y < 0)
 		{
 			game->negatif = 1;
-			break;
+			break ;
 		}
 		if (game->tab[game->ray.map_x][game->ray.map_y] == '1')
 			game->ray.hit = 1;
@@ -96,7 +42,7 @@ void	ft_increment_ray(t_data *game)
 	ft_startend(game);
 }
 
-// Calcul pour dessin de colonne de mur
+// Calcul pour dessin de colonne de mur apres que le rayon ait touche le mur
 void	ft_startend(t_data *game)
 {
 	if (game->negatif == 1)
@@ -115,10 +61,12 @@ void	ft_startend(t_data *game)
 	if (game->ray.draw_end >= DISPLAY_HEIGHT || game->ray.draw_end < 0)
 		game->ray.draw_end = DISPLAY_HEIGHT - 1;
 }
-static int     rgb_to_int(int r, int g, int b)
+
+static int	rgb_to_int(int r, int g, int b)
 {
-    return (r << 16 | g << 8 | b);
+	return (r << 16 | g << 8 | b);
 }
+
 // Dessin colonne de mur
 int	display_column(t_data *game, int x)
 {
@@ -128,8 +76,8 @@ int	display_column(t_data *game, int x)
 	j = -1;
 	if (game->negatif == 1)
 		return (0);
-    game->ceiling = rgb_to_int(game->c_rgb[0], game->c_rgb[1], game->c_rgb[2]);
-    game->floor = rgb_to_int(game->f_rgb[0], game->f_rgb[1], game->f_rgb[2]);
+	game->ceiling = rgb_to_int(game->c_rgb[0], game->c_rgb[1], game->c_rgb[2]);
+	game->floor = rgb_to_int(game->f_rgb[0], game->f_rgb[1], game->f_rgb[2]);
 	game->ray.draw_end = DISPLAY_HEIGHT - game->ray.draw_start;
 	i = game->ray.draw_end;
 	while (++j < game->ray.draw_start)

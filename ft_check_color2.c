@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 12:38:24 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/29 20:05:37 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/30 12:41:14 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int	ft_check_argcolor(char **str, t_data *map)
 	return (0);
 }
 
-int just_space(char *str)
+int	just_space(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!str)
@@ -51,11 +51,12 @@ int just_space(char *str)
 	}
 	return (1);
 }
+
 //il faut free avant chaque msg err
 int	ft_check_line_fd(char *str)
 {
-	int			i;
-	char		**split;
+	int		i;
+	char	**split;
 
 	i = 0;
 	split = NULL;
@@ -66,10 +67,9 @@ int	ft_check_line_fd(char *str)
 	{
 		if (ft_strlen_mat(split) < 1 || ft_strlen_mat(split) > INT_MAX)
 			return (1);
-		if (split[0][0] != 'N' && split[0][0] != 'S' && split[0][0] != 'W' 
-		&& split[0][0] != 'E' && split[0][0] != 'F' 
-		&& split[0][0] != 'C' && split[0][0] != '\n' && split[0][0] != '1' 
-		&& split[0][0] != '0')
+		if (split[0][0] != 'N' && split[0][0] != 'S' && split[0][0] != 'W'
+			&& split[0][0] != 'E' && split[0][0] != 'F' && split[0][0] != 'C'
+			&& split[0][0] != '\n' && split[0][0] != '1' && split[0][0] != '0')
 			return (ft_free(split), 1);
 		i++;
 	}
@@ -87,11 +87,9 @@ int	ft_check_fd(t_data *map)
 	i = 0;
 	while (map->tab_fd[i])
 	{
-			//printf("=>%s\n", map->tab_fd[i]);
 		if (ft_check_line_fd(map->tab_fd[i]))
 		{
-			//printf("=>%s\n", map->tab_fd[i]);
-			return(1);
+			return (1);
 		}
 		i++;
 	}
@@ -105,10 +103,9 @@ int	ft_check_tab_fd(t_data *map)
 	i = 0;
 	while (map->tab_fd[i])
 	{
-		if (ft_strchr(map->tab_fd[i],'\t'))
-			return(1);
+		if (ft_strchr(map->tab_fd[i], '\t'))
+			return (1);
 		i++;
 	}
 	return (0);
 }
-
