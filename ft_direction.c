@@ -6,7 +6,7 @@
 /*   By: hferjani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:51:26 by hferjani          #+#    #+#             */
-/*   Updated: 2023/06/30 12:28:50 by hferjani         ###   ########.fr       */
+/*   Updated: 2023/06/30 12:33:59 by hferjani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ void close_fd(t_data *map)
 int	ft_check_map_dir(char **str, t_data *map)
 {
 	if (ft_check_dir(str, map) == 2)
+		return (2);
+	if(map->north == NULL || map->south == NULL || map->west == NULL || map->east == NULL)
 		return (2);
 	map->fdn = open(map->north, O_RDONLY);
 	map->fds = open(map->south, O_RDONLY);
